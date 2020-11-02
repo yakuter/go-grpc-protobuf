@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = ".;pb";
+
+message Person {
+  string name = 1 [json_name="Name"];
+  int32 age = 2 [json_name="Age"]; 
+  string address = 3 [json_name="Address"];
+}
+
+service PersonService {
+	rpc Add (PersonRequest) returns (PersonResponse);
+}
+
+// The request message containing the user's name.
+message PersonRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message PersonResponse {
+  string name = 1;
+}
